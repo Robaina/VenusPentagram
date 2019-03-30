@@ -9,5 +9,9 @@ h1 {
   color: rgb(201, 201, 201);
   margin-top: 5vh;
   margin-bottom: 0vh;
-  font-size: 2.5;
+  font-size: 3.5em;
 }
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 2em;
+  }

@@ -60,7 +60,7 @@ function draw() {
   // Draw Venus trail
   push();
   for (let i = 0; i < trail.length - 1; i++) {
-     strokeWeight(3);
+     strokeWeight(2);
      stroke("orange");
      line(trail[i][0], trail[i][1], trail[i + 1][0], trail[i + 1][1]);
    }
