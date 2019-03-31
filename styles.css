@@ -11,7 +11,49 @@ h1 {
   margin-bottom: 0vh;
   font-size: 3.5em;
 }
+.button {
+  position: absolute;
+  display: inline;
+  padding: 1vmax;
+  font-size: 2.3vmax;
+  width: 10vmax;
+  background-color: rgb(139, 139, 139);
+  border: none;
+  color: var(--body-color);
+  text-align: center;
+  text-decoration: none;
+  margin: 1em 0em;
+  margin-left: 10vw;
+  cursor: pointer;
+  border-radius: 1vmax;
+  user-select: none;
+  outline: none;
+  box-shadow: 0 0.5vmax rgb(221, 221, 221);
+  z-index: 2;
+}
+.button:active {
+  box-shadow: 0 0.3vmax rgb(102, 102, 102);
+  transform: translateY(4px);
+}
+#pause_button {
+  top: 2vh;
+  margin-left: 3vw;
+}
+#reset_button {
+  top: 2vh;
+  margin-left: 14vw;
+}
+
 @media only screen and (max-width: 768px) {
   h1 {
     font-size: 2em;
+  }
+  .button {
+    position: static;
+  }
+  #pause_button {
+    margin-left: 10vw;
+  }
+  #reset_button {
+    margin-left: 3vw;
   }

@@ -1,17 +1,19 @@
 // A dynamic view of the Venus pentagram
 // Semidan Robaina Estevez, 2019
 
+let pause_animation = true;
+let pause_button = document.getElementById("pause_button");
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  cnv = createCanvas(windowWidth, windowHeight);
   angleMode(DEGREES);
   frame_rate = 30
   frameRate(frame_rate);
   trail = [];
   x = windowWidth / 2;
   y = windowHeight / 2.3;
-  s = min(windowWidth, windowHeight) / 60;
-  r_earth_sun = 12 * s;
+  scale_factor = min(windowWidth, windowHeight) / 60;
+  r_earth_sun = 12 * scale_factor;
   r_venus_sun = 0.723 * r_earth_sun;
   angle_earth_sun = angle_venus_sun = 0;
   earth_speed = 60 / frame_rate; // 30 degrees / second
@@ -19,6 +21,7 @@ function setup() {
 }
 
 function draw() {
+
   background((51,51,51));
 
   push();
@@ -34,7 +37,7 @@ function draw() {
 
   noStroke();
   fill("blue");
-  ellipse(0, 0, s, s);
+  ellipse(0, 0, scale_factor, scale_factor);
 
   translate(0, r_earth_sun);
   rotate(angle_venus_sun);
@@ -43,9 +46,7 @@ function draw() {
   line(0, 0, 0, r_venus_sun);
 
   fill("yellow");
-  ellipse(0, 0, 2 * s, 2 * s);
-
-
+  ellipse(0, 0, 2 * scale_factor, 2 * scale_factor);
   pop();
 
   // Get Sun coordinates
@@ -67,16 +68,35 @@ function draw() {
   pop();
 
   fill("orange");
-  ellipse(venus_x, venus_y, s, s);
+  ellipse(venus_x, venus_y, scale_factor, scale_factor);
 
-  angle_earth_sun -= earth_speed;
-  angle_venus_sun -= venus_speed;
+  if(!pause_animation) {
+    angle_earth_sun -= earth_speed;
+    angle_venus_sun -= venus_speed;
+  }
 
-  if(completeCycle(angle_earth_sun)) {
+  if (completeCycle(angle_earth_sun)) {
     noLoop();
+  }
+
+}
+
+// Helper functions
+function completeCycle(angle) {
+   return -angle / 8 > 360
+}
+
+function pause() {
+  pause_animation = !pause_animation;
+  if (!pause_animation) {
+    pause_button.innerHTML = "Pause";
+  } else {
+    pause_button.innerHTML = "Resume";
   }
 }
 
-function completeCycle(angle) {
-   return -angle / 8 > 360
+function reset() {
+  pause_button.innerHTML = "Play";
+  pause_animation = !pause_animation;
+  setup();
 }
