@@ -11,10 +11,18 @@ h1 {
   margin-bottom: 0vh;
   font-size: 3.5em;
 }
-/* #defaultCanvas0 {
-  margin-top: -10vh;
-  z-index: 0;
-} */
+a {
+  text-decoration: none;
+  color: rgb(208, 165, 37);
+}
+footer {
+  position: absolute;
+  top: 89vh;
+  left: 3vw;
+  font-size: 1.3vmax;
+  z-index: 2;
+  color: rgb(177, 177, 177);
+}
 .button {
   position: absolute;
   display: inline;
