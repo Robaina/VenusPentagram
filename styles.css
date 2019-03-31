@@ -1,4 +1,4 @@
-body {
+html, body {
   margin: 0px;
   padding: 0px;
   background-color: rgb(51, 51, 51);
@@ -11,12 +11,16 @@ h1 {
   margin-bottom: 0vh;
   font-size: 3.5em;
 }
+/* #defaultCanvas0 {
+  margin-top: -10vh;
+  z-index: 0;
+} */
 .button {
   position: absolute;
   display: inline;
   padding: 1vmax;
   font-size: 2.3vmax;
-  width: 10vmax;
+  width: 9.5vmax;
   background-color: rgb(139, 139, 139);
   border: none;
   color: var(--body-color);
@@ -29,18 +33,18 @@ h1 {
   user-select: none;
   outline: none;
   box-shadow: 0 0.5vmax rgb(221, 221, 221);
-  z-index: 2;
+  z-index: 1;
 }
 .button:active {
   box-shadow: 0 0.3vmax rgb(102, 102, 102);
   transform: translateY(4px);
 }
 #pause_button {
-  top: 2vh;
+  top: 15vh;
   margin-left: 3vw;
 }
 #reset_button {
-  top: 2vh;
+  top: 15vh;
   margin-left: 14vw;
 }
 
@@ -52,7 +56,7 @@ h1 {
     position: static;
   }
   #pause_button {
-    margin-left: 10vw;
+    margin-left: 6vw;
   }
   #reset_button {
     margin-left: 3vw;

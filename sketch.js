@@ -3,9 +3,11 @@
 
 let pause_animation = true;
 let pause_button = document.getElementById("pause_button");
+let trail = [];
+let angle_earth_sun, angle_venus_sun;
 
 function setup() {
-  cnv = createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowHeight);
   angleMode(DEGREES);
   frame_rate = 30
   frameRate(frame_rate);
@@ -14,7 +16,7 @@ function setup() {
   y = windowHeight / 2.3;
   scale_factor = min(windowWidth, windowHeight) / 60;
   r_earth_sun = 12 * scale_factor;
-  r_venus_sun = 0.723 * r_earth_sun;
+  r_venus_sun = 0.72348 * r_earth_sun;
   angle_earth_sun = angle_venus_sun = 0;
   earth_speed = 60 / frame_rate; // 30 degrees / second
   venus_speed = earth_speed  * ((365.2 / 224.7) - 1);
@@ -97,6 +99,8 @@ function pause() {
 
 function reset() {
   pause_button.innerHTML = "Play";
-  pause_animation = !pause_animation;
-  setup();
+  pause_animation = true;
+  angle_earth_sun = angle_venus_sun = 0;
+  trail = [];
+  loop();
 }
