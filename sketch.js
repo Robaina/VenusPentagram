@@ -13,7 +13,11 @@ function setup() {
   frameRate(frame_rate);
   trail = [];
   x = windowWidth / 2;
-  y = windowHeight / 2.3;
+  if(windowWidth > windowHeight) {
+    y = windowHeight / 2.3;
+  }else {
+    y = windowHeight / 3;
+  }
   scale_factor = min(windowWidth, windowHeight) / 60;
   r_earth_sun = 12 * scale_factor;
   r_venus_sun = 0.72348 * r_earth_sun;
