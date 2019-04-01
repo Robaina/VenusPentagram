@@ -3,7 +3,7 @@
 
 let pause_animation = true;
 let pause_button = document.getElementById("pause_button");
-let trail = [];
+let trails = [];
 let angle_earth_sun, angle_venus_sun;
 
 function setup() {
@@ -11,7 +11,7 @@ function setup() {
   angleMode(DEGREES);
   frame_rate = 30
   frameRate(frame_rate);
-  trail = [];
+
   x = windowWidth / 2;
   if(windowWidth > windowHeight) {
     y = windowHeight / 2.3;
@@ -22,8 +22,8 @@ function setup() {
   r_earth_sun = 12 * scale_factor;
   r_venus_sun = 0.72348 * r_earth_sun;
   angle_earth_sun = angle_venus_sun = 0;
-  earth_speed = 60 / frame_rate; // 30 degrees / second
-  venus_speed = earth_speed  * ((365.2 / 224.7) - 1);
+  earth_angular_speed = 90 / frame_rate; // 30 degrees / second
+  venus_angular_speed = earth_angular_speed * ((365.2 / 224.7) - 1);
 }
 
 function draw() {
@@ -62,14 +62,14 @@ function draw() {
   // Get Venus coordinates
   venus_x = sun_x + r_venus_sun * cos(angle_earth_sun + angle_venus_sun + 90);
   venus_y = sun_y + r_venus_sun * sin(angle_earth_sun + angle_venus_sun + 90);
-  trail.push([venus_x, venus_y]);
+  trails.push([venus_x, venus_y]);
 
-  // Draw Venus trail
+  // Draw Venus trails
   push();
-  for (let i = 0; i < trail.length - 1; i++) {
+  for (let i = 0; i < trails.length - 1; i++) {
      strokeWeight(2);
      stroke("orange");
-     line(trail[i][0], trail[i][1], trail[i + 1][0], trail[i + 1][1]);
+     line(trails[i][0], trails[i][1], trails[i + 1][0], trails[i + 1][1]);
    }
   pop();
 
@@ -77,8 +77,8 @@ function draw() {
   ellipse(venus_x, venus_y, scale_factor, scale_factor);
 
   if(!pause_animation) {
-    angle_earth_sun -= earth_speed;
-    angle_venus_sun -= venus_speed;
+    angle_earth_sun -= earth_angular_speed;
+    angle_venus_sun -= venus_angular_speed;
   }
 
   if (completeCycle(angle_earth_sun)) {
@@ -105,6 +105,6 @@ function reset() {
   pause_button.innerHTML = "Play";
   pause_animation = true;
   angle_earth_sun = angle_venus_sun = 0;
-  trail = [];
+  trails = [];
   loop();
 }
