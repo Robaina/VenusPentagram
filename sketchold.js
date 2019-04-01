@@ -47,7 +47,7 @@ function draw() {
 
   for(trail of trails){
     strokeWeight(0.5);
-    stroke("orange");
+    stroke("violet");
     line(trail[0], trail[1], trail[2], trail[3]);
   }
 
