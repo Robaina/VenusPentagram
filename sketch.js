@@ -12,11 +12,11 @@ function setup() {
   frame_rate = 30
   frameRate(frame_rate);
 
-  x = windowWidth / 2;
+  earth_x = windowWidth / 2;
   if(windowWidth > windowHeight) {
-    y = windowHeight / 2.3;
+    earth_y = windowHeight / 2.3;
   }else {
-    y = windowHeight / 3;
+    earth_y = windowHeight / 3;
   }
   scale_factor = min(windowWidth, windowHeight) / 60;
   r_earth_sun = 12 * scale_factor;
@@ -31,7 +31,7 @@ function draw() {
   background((51,51,51));
 
   push();
-  translate(x, y);
+  translate(earth_x, earth_y);
   rotate(angle_earth_sun);
 
   stroke(150);
@@ -56,8 +56,8 @@ function draw() {
   pop();
 
   // Get Sun coordinates
-  sun_x = x + r_earth_sun * cos(angle_earth_sun + 90);
-  sun_y = y + r_earth_sun * sin(angle_earth_sun + 90);
+  sun_x = earth_x + r_earth_sun * cos(angle_earth_sun + 90);
+  sun_y = earth_y + r_earth_sun * sin(angle_earth_sun + 90);
 
   // Get Venus coordinates
   venus_x = sun_x + r_venus_sun * cos(angle_earth_sun + angle_venus_sun + 90);

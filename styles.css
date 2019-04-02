@@ -2,18 +2,30 @@ html, body {
   margin: 0px;
   padding: 0px;
   background-color: rgb(51, 51, 51);
-  overflow: hidden;
+  /* overflow: hidden; */
+  overflow-x: hidden;
+  --fontColor: rgb(201, 201, 201);
+  --fancyColor: rgb(232, 130, 117);
 }
 h1 {
   text-align: center;
-  color: rgb(201, 201, 201);
+  color:  var(--fontColor);
   margin-top: 5vh;
   margin-bottom: 0vh;
   font-size: 3.5em;
 }
+article {
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 15vh;
+  color: var(--fontColor);
+  text-align: justify;
+  font-size: 1em;
+  display: none;
+}
 a {
   text-decoration: none;
-  color: rgb(208, 165, 37);
+  color: var(--fancyColor);
 }
 footer {
   position: absolute;
@@ -21,7 +33,7 @@ footer {
   left: 3vw;
   font-size: 1.3vmax;
   z-index: 2;
-  color: rgb(177, 177, 177);
+  color: var(--fontColor);
 }
 .button {
   position: absolute;
@@ -29,7 +41,7 @@ footer {
   padding: 1vmax;
   font-size: 2.1vmax;
   width: 9.5vmax;
-  background-color: rgb(139, 139, 139);
+  background-color: var(--fancyColor);
   border: none;
   color: var(--body-color);
   text-align: center;
@@ -55,6 +67,28 @@ footer {
   top: 15vh;
   margin-left: 14vw;
 }
+#type_button {
+  top: 15vh;
+  margin-left: 25vw;
+}
+
+::-webkit-scrollbar {
+  width: 1vw;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 0.25vw grey;
+  border-radius: 0.5vw;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--fancyColor);
+  border-radius: 0.5vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--fancyColor);
+}
 
 @media only screen and (max-width: 768px) {
   h1 {
@@ -67,5 +101,8 @@ footer {
     margin-left: 6vw;
   }
   #reset_button {
+    margin-left: 3vw;
+  }
+  #type_button {
     margin-left: 3vw;
   }
