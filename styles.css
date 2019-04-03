@@ -1,75 +1,70 @@
 html, body {
+  --fontColor: rgb(201, 201, 201);
+  --backgroundColor: rgb(0, 0, 0);
   margin: 0px;
   padding: 0px;
-  background-color: rgb(51, 51, 51);
-  /* overflow: hidden; */
+  background-color: var(--backgroundColor);
   overflow-x: hidden;
-  --fontColor: rgb(201, 201, 201);
-  --fancyColor: rgb(232, 130, 117);
+  scroll-behavior: smooth;
 }
-h1 {
+#title {
+  width: 60vw;
+  height: 6vw;
+  margin-left: 20vw;
+  margin-top: 1vw;
+  margin-bottom: 2vw;
   text-align: center;
   color:  var(--fontColor);
-  margin-top: 5vh;
-  margin-bottom: 0vh;
-  font-size: 3.5em;
+  font-size: 6vw;
+  font-family: fantasy;
 }
 article {
-  margin-left: 10vw;
-  margin-right: 10vw;
-  margin-top: 15vh;
+  margin-left: 20vw;
+  margin-right: 20vw;
   color: var(--fontColor);
   text-align: justify;
-  font-size: 1em;
-  display: none;
+  font-size: 2vmax;
 }
 a {
   text-decoration: none;
   color: var(--fancyColor);
 }
 footer {
-  position: absolute;
-  top: 89vh;
-  left: 3vw;
-  font-size: 1.3vmax;
+  margin-left: 20vw;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  font-size: 1.5vmax;
   z-index: 2;
   color: var(--fontColor);
 }
+#button_container {
+  width: 60vw;
+  height: 4vmax;
+  margin-left: 20vw;
+  background-color: var(--backgroundColor);
+  z-index: -1;
+}
 .button {
-  position: absolute;
-  display: inline;
-  padding: 1vmax;
-  font-size: 2.1vmax;
-  width: 9.5vmax;
+  display: static;
+  padding: 0;
+  font-size: 2.5vw;
+  width: 23%;
+  height: 75%;
   background-color: var(--fancyColor);
   border: none;
-  color: var(--body-color);
+  color: var(--backgroundColor);
   text-align: center;
   text-decoration: none;
-  margin: 1em 0em;
-  margin-left: 10vw;
   cursor: pointer;
   border-radius: 1vmax;
   user-select: none;
   outline: none;
-  box-shadow: 0 0.5vmax rgb(221, 221, 221);
+  box-shadow: 0 0.5vw rgb(221, 221, 221);
   z-index: 1;
 }
 .button:active {
   box-shadow: 0 0.3vmax rgb(102, 102, 102);
   transform: translateY(4px);
-}
-#pause_button {
-  top: 15vh;
-  margin-left: 3vw;
-}
-#reset_button {
-  top: 15vh;
-  margin-left: 14vw;
-}
-#type_button {
-  top: 15vh;
-  margin-left: 25vw;
 }
 
 ::-webkit-scrollbar {
@@ -91,18 +86,8 @@ footer {
 }
 
 @media only screen and (max-width: 768px) {
-  h1 {
-    font-size: 2em;
+  #title {
+    margin-top: 5vmax;
+    margin-bottom: 2vmax;
   }
-  .button {
-    position: static;
-  }
-  #pause_button {
-    margin-left: 6vw;
-  }
-  #reset_button {
-    margin-left: 3vw;
-  }
-  #type_button {
-    margin-left: 3vw;
-  }
+}
