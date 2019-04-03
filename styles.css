@@ -97,4 +97,11 @@ footer {
   #pause_button {
     margin-left: 0vw;
   }
+  article {
+    margin-left: 10vw;
+    margin-right: 10vw;
+  }
+  footer {
+    margin-left: 10vw;
+  }
 }
