@@ -101,7 +101,7 @@ function selectType() {
 function setEarthCentered() {
   scale_factor = min(width, height) / 55;
   earth_x = width / 2;
-  earth_y = height / 2
+  earth_y = height / 2.2
   r_earth_sun = 12 * scale_factor;
   r_venus_sun = 0.72348 * r_earth_sun;
   earth_angular_speed = 90 / frame_rate; // 30 degrees / second

@@ -8,15 +8,15 @@ html, body {
   scroll-behavior: smooth;
 }
 #title {
-  width: 60vw;
+  width: 80vw;
   height: 6vw;
-  margin-left: 20vw;
-  margin-top: 1vw;
-  margin-bottom: 2vw;
+  margin-left: 10vw;
+  margin-top: 0vw;
+  margin-bottom: 4vw;
   text-align: center;
   color:  var(--fontColor);
-  font-size: 6vw;
-  font-family: fantasy;
+  font-size: 6.5vw;
+  font-family: 'Anton', sans-serif;
 }
 article {
   margin-left: 20vw;
@@ -88,6 +88,7 @@ footer {
 @media only screen and (max-width: 768px) {
   #title {
     margin-top: 5vmax;
-    margin-bottom: 2vmax;
+    margin-bottom: 3vmax;
+    font-size: 7.5vw;
   }
 }
